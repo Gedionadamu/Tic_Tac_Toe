@@ -9,7 +9,7 @@ const Cell = ({ id, cell, setCells, go, setGo, cells }) => {
                 setGo("cross")
             }
             else if (go === "cross") {
-                e.traget.firstChild.classList.add("cross")
+                e.target.firstChild.classList.add("cross")
                 setGo("circle")
             }
         }
