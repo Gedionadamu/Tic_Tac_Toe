@@ -1,23 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import Cell from './Components/cell';
+import { useState } from 'react';
+
+
 
 function App() {
+  const [cells, setCells] = useState(["","","","","","","","",""])
+  const [go, setGo] = useState("circle")
+  const [winningMessage, setWinningMessage] = useState(null)
+
+  const message = "its is now " + go + "'s turn."
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="gameboard">
+        {cells.map((cell, index)=> <Cell 
+        key={index} 
+        id={index} cell={cell} setCells={setCells} go={go}
+        setGo={setGo}
+        cells={cells}
+        />)}
+      </div>
+      <p>{message}</p>
     </div>
   );
 }
